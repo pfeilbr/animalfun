@@ -52,6 +52,8 @@
 		_infoButton = nil;
 		_volumeView = nil;
 		_infoViewController = nil;
+		
+		_displayedFirstScene = NO;
 	}
 	return self;
 }
@@ -94,7 +96,10 @@
 	[super viewDidAppear:animated];
 
 	// render 1st scene
-	[self renderNextScene];
+	if (!_displayedFirstScene) {
+		[self renderNextScene];
+		_displayedFirstScene = YES;
+	}
 }
 
 -(void)updateUI {

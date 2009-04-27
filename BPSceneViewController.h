@@ -22,6 +22,7 @@
 	UIAccelerationValue _accelerometer[3];
 	CFTimeInterval _lastTimeMotionDetected;
 	BPInfoViewController *_infoViewController;
+	BOOL _displayedFirstScene;
 }
 
 @property(nonatomic, retain) BPSceneManager *sceneManager;

@@ -9,6 +9,13 @@ for children.  If you enjoy the pictures and sounds, head over to "http://tuxpai
 
 Animal Fun is free, Open Source software, distributed under the terms of the GNU "General Public License":http://github.com/pfeilbr/animalfun/blob/master/LICENSE.
 
+h1. Features
+* 50+ animals
+* touch/tap to change animal
+* hear the animal name, the animal sound effect, or the animal name spelled
+* individual letters are highlighted as the animal name is being spelled
+* set the default sound when the animal is first shown to "Animal Name", "Animal Sound", or "Spell Name" 
+
 h1. Usage Considerations
 
 Please make sure the PHONE IS NOT IN SILENT MODE (the switch on the side of the phone should be up) and Settings | 
