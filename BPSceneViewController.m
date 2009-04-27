@@ -227,6 +227,7 @@
 	_nameButton.enabled = enabled;
 	_soundButton.enabled = enabled;
 	_spellButton.enabled = enabled;
+	_infoButton.enabled = enabled;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -245,25 +246,21 @@
 }
 
 -(void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration {
-    UIAccelerationValue                length,
-	x,
-	y,
-	z;
+    UIAccelerationValue length, x, y, z;
     
-    //Use a basic high-pass filter to remove the influence of the gravity
     _accelerometer[0] = acceleration.x * kFilteringFactor + _accelerometer[0] * (1.0 - kFilteringFactor);
     _accelerometer[1] = acceleration.y * kFilteringFactor + _accelerometer[1] * (1.0 - kFilteringFactor);
     _accelerometer[2] = acceleration.z * kFilteringFactor + _accelerometer[2] * (1.0 - kFilteringFactor);
-    // Compute values for the three axes of the acceleromater
+    
     x = acceleration.x - _accelerometer[0];
     y = acceleration.y - _accelerometer[0];
     z = acceleration.z - _accelerometer[0];
     
-    //Compute the intensity of the current acceleration 
+    
     length = sqrt(x * x + y * y + z * z);
-    // If above a given threshold, play the erase sounds and erase the drawing view
+    
     if((length >= kEraseAccelerationThreshold) && (CFAbsoluteTimeGetCurrent() > _lastTimeMotionDetected + kMinEraseInterval)) {
-        // actions to take when shaken here
+        // action(s) to take when shaken
 		if ([[BPSettings sharedInstance] shakeToChange]) {
 			[self displayNextScene];
 		}	
