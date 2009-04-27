@@ -23,7 +23,6 @@
 		C52B6D0E0FA60E20000AC6E5 /* BPSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C52B6C060FA60E1F000AC6E5 /* BPSceneManager.m */; };
 		C52B6D0F0FA60E20000AC6E5 /* BPSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = C52B6C080FA60E1F000AC6E5 /* BPSettings.m */; };
 		C52B6D150FA60E74000AC6E5 /* AnimalFunAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C52B6D140FA60E74000AC6E5 /* AnimalFunAppDelegate.m */; };
-		C52B6D190FA60E8C000AC6E5 /* rabbit_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = C52B6D160FA60E8C000AC6E5 /* rabbit_57x57.png */; };
 		C52B6D1A0FA60E8C000AC6E5 /* SceneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C52B6D170FA60E8C000AC6E5 /* SceneView.xib */; };
 		C52B6D1B0FA60E8C000AC6E5 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C52B6D180FA60E8C000AC6E5 /* InfoView.xib */; };
 		C52B6D200FA60E9C000AC6E5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C52B6D1F0FA60E9C000AC6E5 /* Settings.bundle */; };
@@ -36,6 +35,7 @@
 		C5C0CBDA0FA6111800AC62B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C0CBD90FA6111800AC62B2 /* SystemConfiguration.framework */; };
 		C5DC8B350FA614CD00E45A7F /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = C5DC8B340FA614CD00E45A7F /* README.textile */; };
 		C5DC8B8B0FA6392200E45A7F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DC8B8A0FA6392200E45A7F /* Default.png */; };
+		C5DC8BAD0FA6472700E45A7F /* app_icon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DC8BAC0FA6472700E45A7F /* app_icon_57x57.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +70,6 @@
 		C52B6C080FA60E1F000AC6E5 /* BPSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPSettings.m; sourceTree = "<group>"; };
 		C52B6D130FA60E74000AC6E5 /* AnimalFunAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalFunAppDelegate.h; sourceTree = "<group>"; };
 		C52B6D140FA60E74000AC6E5 /* AnimalFunAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalFunAppDelegate.m; sourceTree = "<group>"; };
-		C52B6D160FA60E8C000AC6E5 /* rabbit_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rabbit_57x57.png; sourceTree = "<group>"; };
 		C52B6D170FA60E8C000AC6E5 /* SceneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SceneView.xib; sourceTree = "<group>"; };
 		C52B6D180FA60E8C000AC6E5 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		C52B6D1F0FA60E9C000AC6E5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		C5C0CBD90FA6111800AC62B2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C5DC8B340FA614CD00E45A7F /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 		C5DC8B8A0FA6392200E45A7F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C5DC8BAC0FA6472700E45A7F /* app_icon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon_57x57.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +153,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C52B6D160FA60E8C000AC6E5 /* rabbit_57x57.png */,
+				C5DC8BAC0FA6472700E45A7F /* app_icon_57x57.png */,
 				C52B6D170FA60E8C000AC6E5 /* SceneView.xib */,
 				C52B6D180FA60E8C000AC6E5 /* InfoView.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
@@ -269,7 +269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				C52B6D190FA60E8C000AC6E5 /* rabbit_57x57.png in Resources */,
 				C52B6D1A0FA60E8C000AC6E5 /* SceneView.xib in Resources */,
 				C52B6D1B0FA60E8C000AC6E5 /* InfoView.xib in Resources */,
 				C52B6D200FA60E9C000AC6E5 /* Settings.bundle in Resources */,
@@ -278,6 +277,7 @@
 				C52B6E520FA60FDE000AC6E5 /* www in Resources */,
 				C5DC8B350FA614CD00E45A7F /* README.textile in Resources */,
 				C5DC8B8B0FA6392200E45A7F /* Default.png in Resources */,
+				C5DC8BAD0FA6472700E45A7F /* app_icon_57x57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

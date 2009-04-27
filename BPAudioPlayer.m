@@ -45,12 +45,15 @@ NSString *alphaSoundsRelativeDirectoryPath = @"Data/Sounds/Alpha";
 		NSString *letter = [[_letterQueue objectAtIndex:0] retain];
 		[_letterQueue removeObjectAtIndex:0];
 		
-		SEL sel = @selector(spellText:playingLetterAtIndex:);
-		if (_delegate && [_delegate respondsToSelector:sel]) {
-			[_delegate performSelector:sel withObject:_currentSpellText withObject:_currentSpellTextIndex];
+		// ignore spaces
+		if (![letter isEqualToString:@" "]) {
+			SEL sel = @selector(spellText:playingLetterAtIndex:);
+			if (_delegate && [_delegate respondsToSelector:sel]) {
+				[_delegate performSelector:sel withObject:_currentSpellText withObject:_currentSpellTextIndex];
+			}
+			
+			[self playLetter:letter];
 		}
-		
-		[self playLetter:letter];
 		self.currentSpellTextIndex = [NSNumber numberWithInt:([_currentSpellTextIndex intValue] + 1)];
 	} else {
 		_playing = NO;

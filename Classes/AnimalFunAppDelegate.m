@@ -13,6 +13,9 @@
 	BOOL hasBeenLaunchedBefore = [[NSUserDefaults standardUserDefaults] boolForKey:@"hasBeenLaunchedBefore"];
 	if (!hasBeenLaunchedBefore) {
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasBeenLaunchedBefore"];
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Instructions" message:@"Tap the screen to change to the next animal" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+		[alertView show];
+		[alertView release];
 	}
 	
 	NSString *defaultSoundTypeName = [[NSUserDefaults standardUserDefaults] stringForKey:@"defaultSoundType"];
