@@ -1,2 +1,15 @@
-== Heading ==
-* content here ..
+== Animal Fun ==
+Animal Fun is a simple animal learning program for children.  Children learn about animals by seeing and hearing 
+the sounds an animal makes.  It combines an easy-to-use interface and fun sound effects to entertain children while
+they learn.
+
+The animal pictures and sound effects are from the free wonderful Tux Paint desktop (Mac, Windows, Linux) drawing program 
+for children.  If you enjoy the pictures and sounds, head over to http://tuxpaint.org to download for free.
+
+Animal Fun is free, Open Source software, distributed under the terms of the GNU "General Public License":http://github.com/pfeilbr/animalfun/blob/master/LICENSE.
+
+== Usage Considerations ==
+Please make sure the PHONE IS NOT IN SILENT MODE (the switch on the side of the phone should be up) and Settings | 
+General | Sound Effects is set to BOTH.
+
+You need to use headphones or an external speaker on a first generation iPod Touch (as it has no external speaker)

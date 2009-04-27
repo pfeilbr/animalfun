@@ -135,7 +135,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				C5C0CBD90FA6111800AC62B2 /* SystemConfiguration.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -167,6 +166,7 @@
 				C52B6D2D0FA60EEC000AC6E5 /* MediaPlayer.framework */,
 				C52B6D2B0FA60EEC000AC6E5 /* AudioToolbox.framework */,
 				C52B6D290FA60EEC000AC6E5 /* AVFoundation.framework */,
+				C5C0CBD90FA6111800AC62B2 /* SystemConfiguration.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
