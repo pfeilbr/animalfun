@@ -24,7 +24,7 @@ General | Sound Effects is set to BOTH.
 
 You need to use headphones or an external speaker on a first generation iPod Touch (as it has no external speaker)
 
-h1. Info
+h1. Additional Info
 
 The animal pictures and sound effects are from the free "Tux Paint":http://tuxpaint.org desktop (Mac, Windows, Linux) drawing program 
 for children.  You can download it for free at "http://tuxpaint.org":http://tuxpaint.org.
