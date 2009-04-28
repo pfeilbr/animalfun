@@ -4,10 +4,10 @@ Animal Fun is a simple animal learning program for children.  Children learn abo
 the sounds an animal makes.  It combines an easy-to-use interface and fun sound effects to entertain children while
 they learn.
 
-The animal pictures and sound effects are from the free wonderful "Tux Paint":http://tuxpaint.org desktop (Mac, Windows, Linux) drawing program 
-for children.  If you enjoy the pictures and sounds, head over to "http://tuxpaint.org":http://tuxpaint.org to download for free.
-
-Animal Fun is free, Open Source software, distributed under the terms of the GNU "General Public License":http://github.com/pfeilbr/animalfun/blob/master/LICENSE.
+!http://farm4.static.flickr.com/3570/3480985801_0fa5ff3507_m.jpg!:http://farm4.static.flickr.com/3570/3480985801_0fa5ff3507.jpg
+!http://farm4.static.flickr.com/3658/3481797180_bb446f7a8d_m.jpg!:http://farm4.static.flickr.com/3658/3481797180_bb446f7a8d.jpg
+!http://farm4.static.flickr.com/3316/3480985767_63d5e224d4_m.jpg!:http://farm4.static.flickr.com/3316/3480985767_63d5e224d4.jpg
+!http://farm4.static.flickr.com/3604/3481797256_ba841e1507_m.jpg!:http://farm4.static.flickr.com/3604/3481797256_ba841e1507.jpg
 
 h1. Features
 
@@ -23,3 +23,10 @@ Please make sure the PHONE IS NOT IN SILENT MODE (the switch on the side of the 
 General | Sound Effects is set to BOTH.
 
 You need to use headphones or an external speaker on a first generation iPod Touch (as it has no external speaker)
+
+h1. Info
+
+The animal pictures and sound effects are from the free "Tux Paint":http://tuxpaint.org desktop (Mac, Windows, Linux) drawing program 
+for children.  You can download it for free at "http://tuxpaint.org":http://tuxpaint.org.
+
+Animal Fun is free, Open Source software, distributed under the terms of the GNU "General Public License":http://github.com/pfeilbr/animalfun/blob/master/LICENSE.

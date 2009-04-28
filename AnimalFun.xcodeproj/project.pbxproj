@@ -310,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brian Pfeil";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -317,6 +318,7 @@
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
 				PRODUCT_NAME = AnimalFun;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "60542D77-2A43-41FA-9591-352E92EBA051";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Debug;
@@ -325,11 +327,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brian Pfeil";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
 				PRODUCT_NAME = AnimalFun;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "60542D77-2A43-41FA-9591-352E92EBA051";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Release;
@@ -338,12 +342,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Debug;
@@ -352,11 +357,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Release;
