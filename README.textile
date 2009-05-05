@@ -1,3 +1,5 @@
+<a name="readme"></a>
+
 h1. Animal Fun
 
 Animal Fun is a simple animal learning program for children.  Children learn about animals by seeing and hearing 
