@@ -127,6 +127,7 @@
 	
 	// resize image view to image size
 	_imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+	_imageView.center = self.view.center;	
 	_imageView.image = [UIImage imageWithContentsOfFile:scene.imageFilePath];
 	
 	if ([[BPSettings sharedInstance] vibrateOnChange]) {
