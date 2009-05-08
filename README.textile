@@ -29,3 +29,8 @@ The animal pictures and sound effects are from the free "Tux Paint":http://tuxpa
 for children.  You can download it for free at "http://tuxpaint.org":http://tuxpaint.org.
 
 Animal Fun is free, Open Source software, distributed under the terms of the GNU "General Public License":http://github.com/pfeilbr/animalfun/blob/master/LICENSE.
+
+h1. Technical Notes
+
+The "scripts/data_prep.rb":http://github.com/pfeilbr/animalfun/blob/master/scripts/data_prep.rb file is used for preparing
+the image and audio files from the TuxPaint stamps package and also generating json metadata used by the Animal Fun application.
