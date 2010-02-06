@@ -17,7 +17,10 @@ require 'pp'
 include FileUtils
 
 # path to the tuxpaint stamps
-TUXPAINT_STAMPS_ROOT='/Users/brianpfeil/Downloads/tuxpaint-stamps-2008.06.30/stamps'
+TUXPAINT_STAMPS_ROOT='/Users/brianpfeil/Temp/stamps'
+
+SRC_AUDIO_FILE_TYPE='ogg'
+TARGET_AUDIO_FILE_TYPE='aiff'
 
 # broken (audio) or explictly excluded stamps
 SCENE_EXCLUDE_LIST = ['xanthia']
@@ -96,8 +99,8 @@ scenes_with_all_supporting_files.each do |s|
   scene_metadata[:barefilename] = s.barefilename 
   scene_metadata[:image_file_name] = s.basename
   scene_metadata[:image_description_text] = s.image_description_text
-  scene_metadata[:image_sound_effect_file_name] = s.image_sound_effect_file_name.gsub('.ogg', '.caf')
-  scene_metadata[:image_sound_description_file_name] = s.image_sound_description_file_name.gsub('.ogg', '.caf')
+  scene_metadata[:image_sound_effect_file_name] = s.image_sound_effect_file_name.gsub(".#{SRC_AUDIO_FILE_TYPE}", ".#{TARGET_AUDIO_FILE_TYPE}")
+  scene_metadata[:image_sound_description_file_name] = s.image_sound_description_file_name.gsub(".#{SRC_AUDIO_FILE_TYPE}", ".#{TARGET_AUDIO_FILE_TYPE}")
   scenes_metadata << scene_metadata
   
   # copy relevant files to working directory
@@ -113,8 +116,8 @@ scenes_with_all_supporting_files.each do |s|
     File.open("#{s.barefilename}.json", 'w').write(scene_metadata.to_json)
 
     # convert .ogg audio files to .caf (core audio file) using the sox command line utility
-    system "sox #{s.barefilename}.ogg #{s.barefilename}.caf"
-    system "sox #{s.barefilename}_desc.ogg #{s.barefilename}_desc.caf"  
+    system "sox #{s.barefilename}.#{SRC_AUDIO_FILE_TYPE} #{s.barefilename}.#{TARGET_AUDIO_FILE_TYPE}"
+    system "sox #{s.barefilename}_desc.#{SRC_AUDIO_FILE_TYPE} #{s.barefilename}_desc.#{TARGET_AUDIO_FILE_TYPE}"  
 
     # remove .ogg files
     rm_f "#{s.barefilename}.ogg"
