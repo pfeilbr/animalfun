@@ -318,7 +318,6 @@
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
 				PRODUCT_NAME = AnimalFun;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8D1DA43D-4845-4A87-BB6A-3B1EA368AF04";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Debug;
@@ -333,7 +332,6 @@
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
 				PRODUCT_NAME = AnimalFun;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8D1DA43D-4845-4A87-BB6A-3B1EA368AF04";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Release;

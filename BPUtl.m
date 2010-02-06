@@ -11,7 +11,8 @@
 }
 
 +(id)getObjectFromJSONFile:(NSString*)path {
-	NSString *fileContents = [NSString stringWithContentsOfFile:path];
+	NSError *error;
+	NSString *fileContents = [NSString stringWithContentsOfFile:path encoding:NSASCIIStringEncoding error:&error];
 	return [fileContents JSONValue];
 }
 
