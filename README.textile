@@ -34,3 +34,4 @@ h1. Technical Notes
 
 The "scripts/data_prep.rb":http://github.com/pfeilbr/animalfun/blob/master/scripts/data_prep.rb file is used for preparing
 the image and audio files from the TuxPaint stamps package and also generating json metadata used by the Animal Fun application.
+"SoX":http://sox.sourceforge.net/ is used to convert the .ogg audio files to .aiff. 
