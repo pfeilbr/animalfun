@@ -23,7 +23,7 @@ SRC_AUDIO_FILE_TYPE='ogg'
 TARGET_AUDIO_FILE_TYPE='aiff'
 
 # broken (audio) or explictly excluded stamps
-SCENE_EXCLUDE_LIST = ['xanthia', 'nandou']
+SCENE_EXCLUDE_LIST = ['giraffe', 'nandou', 'xanthia']
 
 # find all files (recursive directory decent from "path") having a file name that matches "pattern"  
 def find_paths(path, pattern)

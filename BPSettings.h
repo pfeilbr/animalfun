@@ -3,7 +3,8 @@
 typedef enum tagBPSoundType {
 	kBPSounds_AnimalName,
 	kBPSounds_AnimalSound,
-	kBPSOunds_SpellName
+	kBPSOunds_SpellName,
+	kBPSounds_AnimalNameAndSound
 } BPSoundType;
 
 @interface BPSettings : NSObject {

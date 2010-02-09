@@ -20,7 +20,7 @@
 	
 	NSString *defaultSoundTypeName = [[NSUserDefaults standardUserDefaults] stringForKey:@"defaultSoundType"];
 	if (!defaultSoundTypeName) {
-		[[NSUserDefaults standardUserDefaults] setObject:@"Animal Name" forKey:@"defaultSoundType"];
+		[[NSUserDefaults standardUserDefaults] setObject:@"Animal Name And Sound" forKey:@"defaultSoundType"];
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"shakeToChange"];
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"vibrateOnChange"];		
 	}

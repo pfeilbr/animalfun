@@ -38,7 +38,10 @@
 		soundType = kBPSounds_AnimalSound;
 	} else if ([defaultSoundTypeName isEqualToString:@"Spell Name"]) {
 		soundType = kBPSOunds_SpellName;
+	} else if ([defaultSoundTypeName isEqualToString:@"Animal Name And Sound"]) {
+		soundType = kBPSounds_AnimalNameAndSound;
 	}
+	
 	return soundType;
 }
 

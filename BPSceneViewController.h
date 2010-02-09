@@ -23,6 +23,8 @@
 	CFTimeInterval _lastTimeMotionDetected;
 	BPInfoViewController *_infoViewController;
 	BOOL _displayedFirstScene;
+	BOOL _playSoundNext;
+	BOOL _sceneTransitionInProgress;
 }
 
 @property(nonatomic, retain) BPSceneManager *sceneManager;
@@ -37,6 +39,7 @@
 -(IBAction)playName:(id)sender;
 -(IBAction)playSound:(id)sender;
 -(IBAction)playSpell:(id)sender;
+-(IBAction)playNameAndSound:(id)sender;
 
 -(IBAction)infoView:(id)sender;
 

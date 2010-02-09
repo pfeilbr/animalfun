@@ -54,6 +54,8 @@
 		_infoViewController = nil;
 		
 		_displayedFirstScene = NO;
+		_playSoundNext = NO;
+		_sceneTransitionInProgress = NO;
 	}
 	return self;
 }
@@ -108,7 +110,8 @@
 }
 
 -(void)displayNextScene {
-	if (![self isAudioPlaying]) {
+	if (!_sceneTransitionInProgress && ![self isAudioPlaying]) {
+		_sceneTransitionInProgress = YES;
 		[self renderNextScene];
 	}	
 }
@@ -119,16 +122,45 @@
 }
 
 - (void)renderScene:(BPScene*)scene {
+	[UIView beginAnimations:@"fadeOutSceneAnimation" context:scene];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(fadeOutDidStop:context:)];
+	[UIView setAnimationBeginsFromCurrentState:YES];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];	
+	_imageView.alpha = 0;
+	[self setFormattedHTMLTitle:@""];
+	[UIView commitAnimations];	
 
-	NSString *imageTitleHTML = [self getFormattedHTMLTitle:[scene.description uppercaseString]];
-	[self setFormattedHTMLTitle:imageTitleHTML];
+}
+
+- (void)fadeOutDidStop:(NSString *)animationID context:(void *)context {
 	
+	BPScene* scene = [_sceneManager currentScene];
+		
 	UIImage *image = [UIImage imageWithContentsOfFile:scene.imageFilePath];
 	
 	// resize image view to image size
 	_imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-	_imageView.center = self.view.center;	
+	_imageView.center = self.view.center;		
 	_imageView.image = [UIImage imageWithContentsOfFile:scene.imageFilePath];
+	
+	
+	[UIView beginAnimations:@"fadeInSceneAnimation" context:scene];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(fadeInDidStop:context:)];
+	[UIView setAnimationBeginsFromCurrentState:YES];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];	
+	_imageView.alpha = 1;
+	[UIView commitAnimations];	
+}
+
+- (void)fadeInDidStop:(NSString *)animationID context:(void *)context {
+	BPScene* scene = [_sceneManager currentScene];
+	
+	NSString *imageTitleHTML = [self getFormattedHTMLTitle:[scene.description uppercaseString]];
+	[self setFormattedHTMLTitle:imageTitleHTML];
 	
 	if ([[BPSettings sharedInstance] vibrateOnChange]) {
 		AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
@@ -139,7 +171,7 @@
 		case kBPSounds_AnimalName:
 			[self playName:self];
 			break;
-		
+			
 		case kBPSounds_AnimalSound:
 			[self playSound:self];
 			break;
@@ -148,11 +180,17 @@
 			[self playSpell:self];
 			break;
 			
+		case kBPSounds_AnimalNameAndSound:
+			[self playNameAndSound:self];
+			break;
+			
+			
 		default:
 			break;
 	}
 	
 	[self updateUI];
+	_sceneTransitionInProgress = NO;
 }
 
 -(NSString*)getFormattedHTMLTitle:(NSString*)title {
@@ -190,7 +228,13 @@
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-	[self enableAudioButtons:YES];
+	if (_playSoundNext) {
+		[self playSound:self];
+		_playSoundNext = NO;
+	} else {
+		[self enableAudioButtons:YES];
+	}
+	
 }
 
 -(void)spellTextDidFinish {
@@ -228,6 +272,14 @@
 	BPScene *scene = [_sceneManager currentScene];
 	[self spellText:scene.description];
 }
+
+-(IBAction)playNameAndSound:(id)sender {
+	[self enableAudioButtons:NO];
+	BPScene *scene = [_sceneManager currentScene];
+	_playSoundNext = YES;
+	[self playAudio:scene.imageSoundDescriptionFilePath];
+}
+
 
 -(void)enableAudioButtons:(BOOL)enabled {
 	_nameButton.enabled = enabled;

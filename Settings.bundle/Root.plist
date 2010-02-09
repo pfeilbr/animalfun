@@ -28,7 +28,7 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>Animal Name</string>
+			<string>Animal Name And Sound</string>
 			<key>Key</key>
 			<string>defaultSoundType</string>
 			<key>Title</key>
@@ -38,6 +38,7 @@
 				<string>Animal Name</string>
 				<string>Animal Sound</string>
 				<string>Spell Name</string>
+				<string>Animal Name and Sound</string>
 			</array>
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>
@@ -46,6 +47,7 @@
 				<string>Animal Name</string>
 				<string>Animal Sound</string>
 				<string>Spell Name</string>
+				<string>Animal Name And Sound</string>
 			</array>
 		</dict>
 	</array>
