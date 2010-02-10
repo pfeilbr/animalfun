@@ -304,11 +304,10 @@
 	_infoButton.enabled = enabled;
 	_nextButton.enabled = enabled;
 	_previousButton.enabled = enabled;
-	/*
+	
 	if (enabled) {
 		_previousButton.enabled = [_sceneManager hasPreviousScene];
 	}
-	 */
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
