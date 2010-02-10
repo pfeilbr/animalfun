@@ -18,6 +18,7 @@
 	UIButton *_soundButton;
 	UIButton *_spellButton;
 	UIButton *_infoButton;
+	UIButton *_nextButton;
 	UIButton *_previousButton;	
 	MPVolumeView *_volumeView;
 	UIAccelerationValue _accelerometer[3];
@@ -35,6 +36,7 @@
 @property(nonatomic, retain) IBOutlet UIButton *soundButton;
 @property(nonatomic, retain) IBOutlet UIButton *spellButton;
 @property(nonatomic, retain) IBOutlet UIButton *infoButton;
+@property(nonatomic, retain) IBOutlet UIButton *nextButton;
 @property(nonatomic, retain) IBOutlet UIButton *previousButton;
 @property(nonatomic, retain) MPVolumeView *volumeView;
 @property(nonatomic, retain) BPInfoViewController *infoViewController;

@@ -35,6 +35,7 @@
 @synthesize soundButton=_soundButton;
 @synthesize spellButton=_spellButton;
 @synthesize infoButton=_infoButton;
+@synthesize nextButton=_nextButton;
 @synthesize previousButton=_previousButton;
 @synthesize volumeView=_volumeView;
 @synthesize infoViewController=_infoViewController;
@@ -75,8 +76,8 @@
 	self.view.backgroundColor = [UIColor whiteColor];
 
 	// image description label
-	self.imageTitleWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 20, applicationFrame.size.width, 40 * 2)];
-	[self.view addSubview:_imageTitleWebView];
+	//self.imageTitleWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 20, applicationFrame.size.width, 40 * 2)];
+	//[self.view addSubview:_imageTitleWebView];
 		
 	// image view
 	_imageView = [[UIImageView alloc] init];
@@ -87,9 +88,9 @@
 	[self.view addSubview:_volumeView];
 
 	// view to facilitate a large touch zone for changing scene
-	_touchOverlayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 380)];
-	_touchOverlayView.backgroundColor = [UIColor clearColor];
-	[self.view addSubview:_touchOverlayView];
+	//_touchOverlayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 380)];
+	//_touchOverlayView.backgroundColor = [UIColor clearColor];
+	//[self.view addSubview:_touchOverlayView];
 			
 	// shake to change functionality
 	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / kAccelerometerFrequency)];
@@ -109,7 +110,7 @@
 -(void)updateUI {
 	// center the image in the view
 	_imageView.center = self.view.center;
-	_previousButton.enabled = [_sceneManager hasPreviousScene];
+	_previousButton.enabled = ![_sceneManager hasPreviousScene];
 }
 
 -(IBAction)displayNextScene:(id)sender {
@@ -301,10 +302,13 @@
 	_soundButton.enabled = enabled;
 	_spellButton.enabled = enabled;
 	_infoButton.enabled = enabled;
+	_nextButton.enabled = enabled;
 	_previousButton.enabled = enabled;
+	/*
 	if (enabled) {
 		_previousButton.enabled = [_sceneManager hasPreviousScene];
 	}
+	 */
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -317,8 +321,10 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
-	if (touch.view == _touchOverlayView) {
+	if ([_touchOverlayView pointInside:[touch locationInView:_touchOverlayView] withEvent:nil]) {
+	//if (touch.view == _touchOverlayView) {
 		[self displayNextScene:self];
+	//}
 	}
 }
 
@@ -338,7 +344,7 @@
     if((length >= kEraseAccelerationThreshold) && (CFAbsoluteTimeGetCurrent() > _lastTimeMotionDetected + kMinEraseInterval)) {
         // action(s) to take when shaken
 		if ([[BPSettings sharedInstance] shakeToChange]) {
-			[self displayNextScene];
+			[self displayNextScene:self];
 		}	
     }
 }

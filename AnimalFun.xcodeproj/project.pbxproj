@@ -34,6 +34,8 @@
 		C52B6D2E0FA60EEC000AC6E5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52B6D2D0FA60EEC000AC6E5 /* MediaPlayer.framework */; };
 		C52B6E490FA60FCF000AC6E5 /* Data in Resources */ = {isa = PBXBuildFile; fileRef = C52B6D460FA60FCE000AC6E5 /* Data */; };
 		C52B6E520FA60FDE000AC6E5 /* www in Resources */ = {isa = PBXBuildFile; fileRef = C52B6E4A0FA60FDE000AC6E5 /* www */; };
+		C54A7B331122F276003CE7A0 /* left-arrow-triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = C54A7B321122F276003CE7A0 /* left-arrow-triangle.png */; };
+		C54A7B3D1122F44A003CE7A0 /* right-arrow-triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = C54A7B3C1122F44A003CE7A0 /* right-arrow-triangle.png */; };
 		C5C0CBDA0FA6111800AC62B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C0CBD90FA6111800AC62B2 /* SystemConfiguration.framework */; };
 		C5DC8B350FA614CD00E45A7F /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = C5DC8B340FA614CD00E45A7F /* README.textile */; };
 		C5DC8B8B0FA6392200E45A7F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DC8B8A0FA6392200E45A7F /* Default.png */; };
@@ -83,6 +85,8 @@
 		C52B6D2D0FA60EEC000AC6E5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C52B6D460FA60FCE000AC6E5 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
 		C52B6E4A0FA60FDE000AC6E5 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		C54A7B321122F276003CE7A0 /* left-arrow-triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow-triangle.png"; sourceTree = "<group>"; };
+		C54A7B3C1122F44A003CE7A0 /* right-arrow-triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow-triangle.png"; sourceTree = "<group>"; };
 		C5C0CBD90FA6111800AC62B2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C5DC8B340FA614CD00E45A7F /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 		C5DC8B8A0FA6392200E45A7F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C54A7B3C1122F44A003CE7A0 /* right-arrow-triangle.png */,
+				C54A7B321122F276003CE7A0 /* left-arrow-triangle.png */,
 				C503C38F1121F02E003A7820 /* left-arrow.png */,
 				C503C3901121F02E003A7820 /* right-arrow.png */,
 				C5DC8BAC0FA6472700E45A7F /* app_icon_57x57.png */,
@@ -286,6 +292,8 @@
 				C5DC8BAD0FA6472700E45A7F /* app_icon_57x57.png in Resources */,
 				C503C3911121F02E003A7820 /* left-arrow.png in Resources */,
 				C503C3921121F02E003A7820 /* right-arrow.png in Resources */,
+				C54A7B331122F276003CE7A0 /* left-arrow-triangle.png in Resources */,
+				C54A7B3D1122F44A003CE7A0 /* right-arrow-triangle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
