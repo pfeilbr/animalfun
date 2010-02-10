@@ -18,6 +18,7 @@
 	UIButton *_soundButton;
 	UIButton *_spellButton;
 	UIButton *_infoButton;
+	UIButton *_previousButton;	
 	MPVolumeView *_volumeView;
 	UIAccelerationValue _accelerometer[3];
 	CFTimeInterval _lastTimeMotionDetected;
@@ -33,6 +34,7 @@
 @property(nonatomic, retain) IBOutlet UIButton *soundButton;
 @property(nonatomic, retain) IBOutlet UIButton *spellButton;
 @property(nonatomic, retain) IBOutlet UIButton *infoButton;
+@property(nonatomic, retain) IBOutlet UIButton *previousButton;
 @property(nonatomic, retain) MPVolumeView *volumeView;
 @property(nonatomic, retain) BPInfoViewController *infoViewController;
 
@@ -40,6 +42,12 @@
 -(IBAction)playSound:(id)sender;
 -(IBAction)playSpell:(id)sender;
 -(IBAction)playNameAndSound:(id)sender;
+
+-(IBAction)displayNextScene:(id)sender;
+-(void)renderNextScene;
+
+-(IBAction)displayPreviousScene:(id)sender;
+-(void)renderPreviousScene;
 
 -(IBAction)infoView:(id)sender;
 

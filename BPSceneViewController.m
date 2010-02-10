@@ -34,6 +34,7 @@
 @synthesize soundButton=_soundButton;
 @synthesize spellButton=_spellButton;
 @synthesize infoButton=_infoButton;
+@synthesize previousButton=_previousButton;
 @synthesize volumeView=_volumeView;
 @synthesize infoViewController=_infoViewController;
 
@@ -50,6 +51,7 @@
 		_soundButton = nil;
 		_spellButton = nil;
 		_infoButton = nil;
+		_previousButton = nil;
 		_volumeView = nil;
 		_infoViewController = nil;
 		
@@ -77,7 +79,6 @@
 		
 	// image view
 	_imageView = [[UIImageView alloc] init];
-	//_imageView.autoresizesToImage = YES;
 	[self.view addSubview:_imageView];
 	
 	// sound/volume view
@@ -87,8 +88,8 @@
 	// view to facilitate a large touch zone for changing scene
 	_touchOverlayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 380)];
 	_touchOverlayView.backgroundColor = [UIColor clearColor];
-	[self.view addSubview:_touchOverlayView];	
-	
+	[self.view addSubview:_touchOverlayView];
+			
 	// shake to change functionality
 	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / kAccelerometerFrequency)];
 	[UIAccelerometer sharedAccelerometer].delegate = self;
@@ -107,9 +108,10 @@
 -(void)updateUI {
 	// center the image in the view
 	_imageView.center = self.view.center;
+	_previousButton.enabled = [_sceneManager hasPreviousScene];
 }
 
--(void)displayNextScene {
+-(IBAction)displayNextScene:(id)sender {
 	if (!_sceneTransitionInProgress && ![self isAudioPlaying]) {
 		_sceneTransitionInProgress = YES;
 		[self renderNextScene];
@@ -118,6 +120,19 @@
 
 -(void)renderNextScene {
 	BPScene *scene = [_sceneManager nextScene];
+	[self renderScene:scene];
+}
+
+
+-(IBAction)displayPreviousScene:(id)sender {
+	if (!_sceneTransitionInProgress && ![self isAudioPlaying]) {
+		_sceneTransitionInProgress = YES;
+		[self renderPreviousScene];
+	}	
+}
+
+-(void)renderPreviousScene {
+	BPScene *scene = [_sceneManager previousScene];
 	[self renderScene:scene];
 }
 
@@ -136,7 +151,7 @@
 
 - (void)fadeOutDidStop:(NSString *)animationID context:(void *)context {
 	
-	BPScene* scene = [_sceneManager currentScene];
+	BPScene* scene = _sceneManager.currentScene;
 		
 	UIImage *image = [UIImage imageWithContentsOfFile:scene.imageFilePath];
 	
@@ -145,7 +160,6 @@
 	_imageView.center = self.view.center;		
 	_imageView.image = [UIImage imageWithContentsOfFile:scene.imageFilePath];
 	
-	
 	[UIView beginAnimations:@"fadeInSceneAnimation" context:scene];
 	[UIView setAnimationDelegate:self];
 	[UIView setAnimationDidStopSelector:@selector(fadeInDidStop:context:)];
@@ -153,15 +167,15 @@
 	[UIView setAnimationDuration:0.5];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];	
 	_imageView.alpha = 1;
-	[UIView commitAnimations];	
-}
-
-- (void)fadeInDidStop:(NSString *)animationID context:(void *)context {
-	BPScene* scene = [_sceneManager currentScene];
 	
 	NSString *imageTitleHTML = [self getFormattedHTMLTitle:[scene.description uppercaseString]];
 	[self setFormattedHTMLTitle:imageTitleHTML];
 	
+	[UIView commitAnimations];	
+}
+
+- (void)fadeInDidStop:(NSString *)animationID context:(void *)context {
+		
 	if ([[BPSettings sharedInstance] vibrateOnChange]) {
 		AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
 	}
@@ -286,6 +300,10 @@
 	_soundButton.enabled = enabled;
 	_spellButton.enabled = enabled;
 	_infoButton.enabled = enabled;
+	_previousButton.enabled = enabled;
+	if (enabled) {
+		_previousButton.enabled = [_sceneManager hasPreviousScene];
+	}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -299,7 +317,7 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	if (touch.view == _touchOverlayView) {
-		[self displayNextScene];
+		[self displayNextScene:self];
 	}
 }
 
@@ -313,7 +331,6 @@
     x = acceleration.x - _accelerometer[0];
     y = acceleration.y - _accelerometer[0];
     z = acceleration.z - _accelerometer[0];
-    
     
     length = sqrt(x * x + y * y + z * z);
     

@@ -15,19 +15,28 @@ static BPSceneManager *gDefaultSceneManager = nil;
 
 @synthesize scenes=_scenes;
 @synthesize currentScene=_currentScene;
+@synthesize nextScene=_nextScene;
+@synthesize previousScene=_previousScene;
 
 -(void)dealloc {
 	[_scenes release];
 	[_sceneQueue release];	
+	[_sceneHistory release];
 	[_currentScene release];
+	[_nextScene release];	
+	[_previousScene release];
 	[super dealloc];
 }
 
 -(id)init {
 	if (self = [super init]) {
 		_scenes = nil;
-		_sceneQueue = nil;		
+		_sceneQueue = nil;
+		_sceneHistory = [[[NSMutableArray alloc] init] retain];
+		_currentHistoryIndex = -1;
 		_currentScene = nil;
+		_nextScene = nil;		
+		_previousScene = nil;
 	}
 	return self;
 }
@@ -66,11 +75,35 @@ static BPSceneManager *gDefaultSceneManager = nil;
 }
 
 -(BPScene*)nextScene {
-	BPScene *scene = [self getRandomScene];
-	NSLog(@"nextScene returning %@", scene.description);
+	BPScene *scene = nil;
+	if (_currentHistoryIndex == -1 || _currentHistoryIndex == ([_sceneHistory count] - 1)) {
+		scene = [self getRandomScene];
+		[_sceneHistory addObject:scene];
+		_currentHistoryIndex = [_sceneHistory count] - 1;
+		
+	} else {
+		_currentHistoryIndex += 1;
+		scene = [_sceneHistory objectAtIndex:_currentHistoryIndex];
+	}
+	
 	self.currentScene = scene;
 	return scene;
 }
+
+-(BOOL)hasPreviousScene {
+	return _currentHistoryIndex > 0;
+}
+
+-(BPScene*)previousScene {
+	BPScene *scene = nil;
+	if (_currentHistoryIndex > 0) {
+		_currentHistoryIndex -= 1;
+		scene = [_sceneHistory objectAtIndex:_currentHistoryIndex];
+		self.currentScene = scene;
+	}
+	return scene;
+}
+
 
 -(BPScene*)getRandomScene {
 	// queue is empty so repopulate with all scenes
