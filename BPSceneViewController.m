@@ -71,13 +71,7 @@
 - (void)loadView {
 	[super loadView];
 	
-	CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
-	
 	self.view.backgroundColor = [UIColor whiteColor];
-
-	// image description label
-	//self.imageTitleWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 20, applicationFrame.size.width, 40 * 2)];
-	//[self.view addSubview:_imageTitleWebView];
 		
 	// image view
 	_imageView = [[UIImageView alloc] init];
@@ -86,11 +80,6 @@
 	// sound/volume view
 	self.volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(40, 430, 240, 30)];
 	[self.view addSubview:_volumeView];
-
-	// view to facilitate a large touch zone for changing scene
-	//_touchOverlayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 380)];
-	//_touchOverlayView.backgroundColor = [UIColor clearColor];
-	//[self.view addSubview:_touchOverlayView];
 			
 	// shake to change functionality
 	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / kAccelerometerFrequency)];
