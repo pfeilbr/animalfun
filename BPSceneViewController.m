@@ -30,6 +30,7 @@
 
 @synthesize sceneManager=_sceneManager;
 @synthesize imageTitleWebView=_imageTitleWebView;
+@synthesize touchOverlayView=_touchOverlayView;
 @synthesize nameButton=_nameButton;
 @synthesize soundButton=_soundButton;
 @synthesize spellButton=_spellButton;

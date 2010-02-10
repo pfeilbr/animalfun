@@ -29,7 +29,8 @@
 }
 
 @property(nonatomic, retain) BPSceneManager *sceneManager;
-@property(nonatomic, retain) UIWebView *imageTitleWebView;
+@property(nonatomic, retain) IBOutlet UIWebView *imageTitleWebView;
+@property(nonatomic, retain) IBOutlet UIView *touchOverlayView;
 @property(nonatomic, retain) IBOutlet UIButton *nameButton;
 @property(nonatomic, retain) IBOutlet UIButton *soundButton;
 @property(nonatomic, retain) IBOutlet UIButton *spellButton;
