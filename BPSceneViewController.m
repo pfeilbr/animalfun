@@ -1,6 +1,7 @@
 #import "BPSceneViewController.h"
 #import "BPSceneManager.h"
 #import "BPScene.h"
+#import "BPSceneListViewController.h"
 #import "BPSettings.h"
 #include <AudioToolbox/AudioToolbox.h>
 
@@ -31,13 +32,16 @@
 @synthesize sceneManager=_sceneManager;
 @synthesize imageTitleWebView=_imageTitleWebView;
 @synthesize touchOverlayView=_touchOverlayView;
+@synthesize toolbar=_toolbar;
 @synthesize nameButton=_nameButton;
 @synthesize soundButton=_soundButton;
 @synthesize spellButton=_spellButton;
+@synthesize tocButton=_tocButton;
 @synthesize infoButton=_infoButton;
 @synthesize nextButton=_nextButton;
 @synthesize previousButton=_previousButton;
 @synthesize volumeView=_volumeView;
+@synthesize sceneListViewController=_sceneListViewController;
 @synthesize infoViewController=_infoViewController;
 
 - (id)init {
@@ -78,9 +82,9 @@
 	[self.view addSubview:_imageView];
 	
 	// sound/volume view
-	self.volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(40, 430, 240, 30)];
+	self.volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(40, 400, 240, 30)];
 	[self.view addSubview:_volumeView];
-			
+				
 	// shake to change functionality
 	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / kAccelerometerFrequency)];
 	[UIAccelerometer sharedAccelerometer].delegate = self;
@@ -110,7 +114,7 @@
 }
 
 -(void)renderNextScene {
-	BPScene *scene = [_sceneManager nextScene];
+	BPScene *scene = [_sceneManager nextScene:nil];
 	[self renderScene:scene];
 }
 
@@ -124,6 +128,11 @@
 
 -(void)renderPreviousScene {
 	BPScene *scene = [_sceneManager previousScene];
+	[self renderScene:scene];
+}
+
+-(void)displaySelectedScene:(BPScene*)_scene {
+	BPScene *scene = [[BPSceneManager defaultSceneManager] nextScene:_scene];
 	[self renderScene:scene];
 }
 
@@ -290,6 +299,7 @@
 	_nameButton.enabled = enabled;
 	_soundButton.enabled = enabled;
 	_spellButton.enabled = enabled;
+	_tocButton.enabled = enabled;
 	_infoButton.enabled = enabled;
 	_nextButton.enabled = enabled;
 	_previousButton.enabled = enabled;
@@ -308,6 +318,7 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	[super touchesBegan:touches withEvent:event];
 	UITouch *touch = [touches anyObject];
 	if ([_touchOverlayView pointInside:[touch locationInView:_touchOverlayView] withEvent:nil]) {
 	//if (touch.view == _touchOverlayView) {
@@ -335,6 +346,17 @@
 			[self displayNextScene:self];
 		}	
     }
+}
+
+-(IBAction)sceneListView:(id)sender {
+	if (!_sceneListViewController) {
+		self.sceneListViewController = [[BPSceneListViewController alloc] initWithNibName:@"SceneListView" bundle:nil];
+		self.sceneListViewController.tableViewDataWrapper = [[TableViewDataWrapper alloc] initWithArray:[BPSceneManager defaultSceneManager].scenes];
+	}
+	UINavigationController *navController = [[UINavigationController alloc] init];
+	[navController pushViewController:_sceneListViewController animated:NO];
+	[self presentModalViewController:navController animated:YES];
+	[navController release];	
 }
 
 -(IBAction)infoView:(id)sender {

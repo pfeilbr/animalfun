@@ -16,4 +16,7 @@
 @property(nonatomic, copy) NSString *imageSoundDescriptionFilePath;
 @property(nonatomic, copy) NSString *imageSoundEffectFilePath;
 
+- (NSComparisonResult)compare:(BPScene *)scene;
+-(id)valueForKey:(NSString *)key;
+
 @end

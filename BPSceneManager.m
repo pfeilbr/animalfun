@@ -70,20 +70,31 @@ static BPSceneManager *gDefaultSceneManager = nil;
 	}
 		
 	_scenes = [NSArray arrayWithArray:tmpScenes];
+	_scenes = [_scenes sortedArrayUsingSelector:@selector(compare:)];
 	[_scenes retain];
 	_sceneQueue = [[NSMutableArray arrayWithArray:_scenes] retain];
 }
 
--(BPScene*)nextScene {
+-(BPScene*)nextScene:(BPScene*)_scene {
+	if ((_scene != nil) && ([self.currentScene.description isEqualToString:_scene.description])) {
+		return _scene;
+	}
+	
 	BPScene *scene = nil;
 	if (_currentHistoryIndex == -1 || _currentHistoryIndex == ([_sceneHistory count] - 1)) {
-		scene = [self getRandomScene];
+		scene = (_scene == nil) ?[self getRandomScene] : _scene;
 		[_sceneHistory addObject:scene];
 		_currentHistoryIndex = [_sceneHistory count] - 1;
 		
 	} else {
-		_currentHistoryIndex += 1;
-		scene = [_sceneHistory objectAtIndex:_currentHistoryIndex];
+		if (_scene == nil) {
+			_currentHistoryIndex += 1;
+			scene = [_sceneHistory objectAtIndex:_currentHistoryIndex];
+		} else {
+			scene = _scene;
+			[_sceneHistory addObject:scene];
+			_currentHistoryIndex = [_sceneHistory count] - 1;			
+		}
 	}
 	
 	self.currentScene = scene;

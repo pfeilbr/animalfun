@@ -27,4 +27,11 @@
 	return self;
 }
 
+- (NSComparisonResult)compare:(BPScene *)scene {
+	return [self.description compare:scene.description options:NSCaseInsensitiveSearch];
+}
+
+-(id)valueForKey:(NSString *)key {
+	return self.description;
+}
 @end

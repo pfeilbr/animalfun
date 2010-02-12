@@ -20,7 +20,7 @@
 +(BPSceneManager*)defaultSceneManager;
 
 -(void)loadScenes;
--(BPScene*)nextScene;
+-(BPScene*)nextScene:(BPScene*)scene;
 -(BPScene*)previousScene;
 -(BOOL)hasPreviousScene;
 
