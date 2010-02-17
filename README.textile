@@ -6,7 +6,10 @@ Animal Fun is a simple animal learning program for children.  Children learn abo
 the sounds an animal makes.  It combines an easy-to-use interface and fun sound effects to entertain children while
 they learn.
 
-!http://farm5.static.flickr.com/4056/4365346219_ac0d882544.jpg!:http://farm5.static.flickr.com/4056/4365346219_ac0d882544.jpg  !http://farm3.static.flickr.com/2796/4366090568_32d68c38c5.jpg!:http://farm3.static.flickr.com/2796/4366090568_32d68c38c5.jpg  !http://farm5.static.flickr.com/4018/4366090476_39e5fe7ce8.jpg!:http://farm5.static.flickr.com/4018/4366090476_39e5fe7ce8.jpg !http://farm3.static.flickr.com/2765/4365346293_faaed84c1d.jpg!:http://farm3.static.flickr.com/2765/4365346293_faaed84c1d.jpg    
+!http://farm5.static.flickr.com/4056/4365346219_ac0d882544.jpg!:http://farm5.static.flickr.com/4056/4365346219_ac0d882544.jpg  !http://farm3.static.flickr.com/2796/4366090568_32d68c38c5.jpg!:http://farm3.static.flickr.com/2796/4366090568_32d68c38c5.jpg
+
+
+!http://farm5.static.flickr.com/4018/4366090476_39e5fe7ce8.jpg!:http://farm5.static.flickr.com/4018/4366090476_39e5fe7ce8.jpg !http://farm3.static.flickr.com/2765/4365346293_faaed84c1d.jpg!:http://farm3.static.flickr.com/2765/4365346293_faaed84c1d.jpg    
 
 h1. Features
 
