@@ -1,8 +1,3 @@
-<style type="text/css" media="screen">
-	img {
-		border: solid black 1px;
-	}
-</style>
 <a name="readme"></a>
 
 h1. Animal Fun
@@ -14,10 +9,11 @@ they learn.
 h2. iPad Screenshots
 
 !http://farm5.static.flickr.com/4065/4502875966_1a96f65bb9.jpg!:http://farm5.static.flickr.com/4065/4502875966_1a96f65bb9.jpg
+
 !http://farm5.static.flickr.com/4015/4502875928_90ec988d9d.jpg!:http://farm5.static.flickr.com/4015/4502875928_90ec988d9d.jpg
 
-
 !http://farm5.static.flickr.com/4062/4502876172_914a353c22.jpg!:http://farm5.static.flickr.com/4062/4502876172_914a353c22.jpg
+
 !http://farm5.static.flickr.com/4042/4502241431_0c75b5121c.jpg!:http://farm5.static.flickr.com/4042/4502241431_0c75b5121c.jpg
 
 h2. iPhone / iPod Touch Screenshots
