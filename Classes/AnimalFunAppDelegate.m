@@ -6,6 +6,7 @@
 
 @synthesize window;
 @synthesize sceneViewController=_sceneViewController;
+@synthesize splitViewController=_splitViewController;
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
@@ -32,8 +33,29 @@
 	self.sceneViewController = [[BPSceneViewController alloc] initWithNibName:@"SceneView" bundle:nil];
 	_sceneViewController.sceneManager = [BPSceneManager defaultSceneManager];
 	[_sceneViewController.sceneManager loadScenes];
+	
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		BPSceneListViewController *sceneListViewController = [[BPSceneListViewController alloc] initWithNibName:@"SceneListView" bundle:nil];
+		sceneListViewController.tableViewDataWrapper = [[TableViewDataWrapper alloc] initWithArray:[BPSceneManager defaultSceneManager].scenes];		
+		[sceneListViewController retain];
+		
+		UINavigationController *navController = [[UINavigationController alloc] init];
+		[navController pushViewController:sceneListViewController animated:NO];		
+		
+		Class splitVCClass = NSClassFromString(@"UISplitViewController");
+		self.splitViewController = (id)[[splitVCClass alloc] init];
+		[self.splitViewController performSelector:@selector(setDelegate:) withObject:self.sceneViewController];
+		[self.splitViewController setViewControllers:[NSArray arrayWithObjects:navController, self.sceneViewController, nil]];
+		[window addSubview:[self.splitViewController view]];
+	}
+	else
+	{
+		[window addSubview:_sceneViewController.view];
+	}
+	
     
-    [window addSubview:_sceneViewController.view];
+    
     [window makeKeyAndVisible];
 }
 

@@ -16,12 +16,16 @@
 @implementation BPSceneListViewController
 
 @synthesize tableViewDataWrapper;
+@synthesize mypopoverController=_mypopoverController;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.title = @"Animals";
 	
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(closeSceneListView:)];
+	// only show close button on iPhone/iPod Touch
+	if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(closeSceneListView:)];
+	}
 }
 
 -(void)closeSceneListView:(id)sender {
@@ -84,14 +88,20 @@
 
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	[self.navigationController dismissModalViewControllerAnimated:YES];
+	// iPad
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		[self.searchDisplayController.searchBar resignFirstResponder];
+		[self.mypopoverController performSelector:@selector(dismissPopoverAnimated:) withObject:YES];
+	} else { // iPhone/iPod Touch
+		[self.navigationController dismissModalViewControllerAnimated:YES];
+	}
+
 	[_tableView deselectRowAtIndexPath:indexPath animated:YES];	
 	
 	
 	BPScene *scene = (BPScene*)[self.tableViewDataWrapper objectForRowAtIndexPath:indexPath];
 	AnimalFunAppDelegate *appDelegate = (AnimalFunAppDelegate*)[UIApplication sharedApplication].delegate;
 	[appDelegate.sceneViewController displaySelectedScene:scene];
-
 }
 
 - (UIImage*)imageByCropping:(UIImage *)imageToCrop toRect:(CGRect)rect
@@ -199,13 +209,16 @@
 }
 */
 
-/*
-// Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		return YES;
+	}
+	else
+	{
+		return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	}
 }
-*/
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

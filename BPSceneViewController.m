@@ -25,6 +25,7 @@
 -(void)updateUI;
 -(BOOL)isAudioPlaying;
 -(void)enableAudioButtons:(BOOL)enabled;
+-(void)centerImageView;
 @end
 
 @implementation BPSceneViewController
@@ -43,6 +44,7 @@
 @synthesize volumeView=_volumeView;
 @synthesize sceneListViewController=_sceneListViewController;
 @synthesize infoViewController=_infoViewController;
+@synthesize mypopoverController=_mypopoverController;
 
 - (id)init {
 	if (self = [super init]) {
@@ -60,10 +62,14 @@
 		_previousButton = nil;
 		_volumeView = nil;
 		_infoViewController = nil;
+		_mypopoverController = nil;
 		
 		_displayedFirstScene = NO;
 		_playSoundNext = NO;
 		_sceneTransitionInProgress = NO;
+		
+		self.view.autoresizesSubviews = YES;
+		self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 	}
 	return self;
 }
@@ -81,13 +87,30 @@
 	_imageView = [[UIImageView alloc] init];
 	[self.view addSubview:_imageView];
 	
+	CGRect volumeViewFrame;
+	
 	// sound/volume view
-	self.volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(40, 400, 240, 30)];
-	[self.view addSubview:_volumeView];
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		// The device is an iPad running iPhone 3.2 or later.
+	}
+	else
+	{
+		// iPhone/iPod Touch
+		volumeViewFrame = CGRectMake(40, 400, 240, 30);
+	}
+
+	self.volumeView = [[MPVolumeView alloc] initWithFrame:volumeViewFrame];
+	[self.view addSubview:_volumeView];	
 				
 	// shake to change functionality
 	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / kAccelerometerFrequency)];
 	[UIAccelerometer sharedAccelerometer].delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -101,9 +124,27 @@
 }
 
 -(void)updateUI {
-	// center the image in the view
-	_imageView.center = self.view.center;
+	[self centerImageView];
 	_previousButton.enabled = ![_sceneManager hasPreviousScene];
+}
+
+-(void)centerImageView {
+	CGPoint imageViewCenterPoint;
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		// portrait
+		if (self.interfaceOrientation ==  UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+			imageViewCenterPoint = CGPointMake(384, 512);
+		} else { //landscape
+			imageViewCenterPoint = CGPointMake(352, 384);
+		}			
+	} else {
+		imageViewCenterPoint = self.view.center;
+	}
+	
+	_imageView.center = imageViewCenterPoint;
+	[self.view setNeedsDisplay];
+	[self.view setNeedsLayout];	
 }
 
 -(IBAction)displayNextScene:(id)sender {
@@ -152,13 +193,26 @@
 - (void)fadeOutDidStop:(NSString *)animationID context:(void *)context {
 	
 	BPScene* scene = _sceneManager.currentScene;
-		
-	UIImage *image = [UIImage imageWithContentsOfFile:scene.imageFilePath];
+			
+	CGRect imageViewFrame;
+	UIImage *image;
 	
-	// resize image view to image size
-	_imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-	_imageView.center = self.view.center;		
-	_imageView.image = [UIImage imageWithContentsOfFile:scene.imageFilePath];
+	// iPad
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		image = [UIImage imageWithContentsOfFile:scene.imageFilePath];
+		imageViewFrame = CGRectMake(0, 0, image.size.width * 2, image.size.height * 2);
+		image = [image scaleToSize:imageViewFrame.size];
+	}
+	else // iPhone/iPod Touch
+	{
+		image = [UIImage imageWithContentsOfFile:scene.imageFilePath];
+		imageViewFrame = CGRectMake(0, 0, image.size.width, image.size.height);
+	}
+	
+	_imageView.frame = imageViewFrame;
+	_imageView.image = image;	
+	[self centerImageView];
 	
 	[UIView beginAnimations:@"fadeInSceneAnimation" context:scene];
 	[UIView setAnimationDelegate:self];
@@ -310,8 +364,61 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		return YES;
+	}
+	else
+	{
+		return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	}
 }
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+	[self updateUI];
+}
+
+#pragma mark -
+#pragma mark Split view support
+
+- (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
+
+	// if toc button exists, exit right away
+	if ([[self.toolbar items] indexOfObject:_tocButton] != NSNotFound) {
+		return;
+	}		
+    
+    NSMutableArray *items = [[self.toolbar items] mutableCopy];
+	[items addObject:_tocButton];
+	
+	UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	[items addObject:spacer];
+	
+    [self.toolbar setItems:items animated:YES];
+    [items release];
+    self.mypopoverController = pc;
+}
+
+
+// Called when the view is shown again in the split view, invalidating the button and popover controller.
+- (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
+	
+	// if toc button doesn't exists, exit right away
+	if ([[self.toolbar items] indexOfObject:_tocButton] == NSNotFound) {
+		return;
+	}	
+	
+    NSMutableArray *items = [[self.toolbar items] mutableCopy];
+
+	// remove the last 2 items (spacer button and toc button)
+	[items removeLastObject];
+	[items removeLastObject];
+    [self.toolbar setItems:items animated:YES];
+    [items release];
+	[self.mypopoverController dismissPopoverAnimated:YES];
+    self.mypopoverController = nil;
+}
+
 
 -(BOOL)isAudioPlaying {
 	return (_audioPlayer && _audioPlayer.playing) || (_spellTextAudioPlayer && _spellTextAudioPlayer.playing);
@@ -355,7 +462,25 @@
 	}
 	UINavigationController *navController = [[UINavigationController alloc] init];
 	[navController pushViewController:_sceneListViewController animated:NO];
-	[self presentModalViewController:navController animated:YES];
+	
+	// iPad
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		// if the popover is showing, just dismiss it
+		if (self.mypopoverController != nil && [self.mypopoverController isPopoverVisible]) {
+			[self.mypopoverController dismissPopoverAnimated:YES];
+			return;
+		}
+		
+		Class uiPopoverControllerClass = NSClassFromString(@"UIPopoverController");
+		self.mypopoverController = (id)[[uiPopoverControllerClass alloc] initWithContentViewController:navController];
+		self.sceneListViewController.mypopoverController = self.mypopoverController;
+		[self.mypopoverController presentPopoverFromBarButtonItem:sender
+									   permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];		
+	} else { // iPhone/iPod Touch
+		[self presentModalViewController:navController animated:YES];
+	}
+	
+	
 	[navController release];	
 }
 
@@ -388,6 +513,7 @@
 	[_infoButton release];
 	[_volumeView release];
 	[_infoViewController release];
+	[_mypopoverController release];
     [super dealloc];
 }
 

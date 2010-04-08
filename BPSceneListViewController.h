@@ -12,8 +12,10 @@
 
 @interface BPSceneListViewController : UITableViewController<UISearchDisplayDelegate, UISearchBarDelegate> {
 	TableViewDataWrapper *tableViewDataWrapper;
+	id _mypopoverController;
 }
 
 @property (nonatomic, retain) TableViewDataWrapper *tableViewDataWrapper;
+@property (nonatomic, retain) id mypopoverController;
 
 @end

@@ -18,6 +18,10 @@
 		C51E5BC0112344BE0093AE96 /* UIImageResizing.m in Sources */ = {isa = PBXBuildFile; fileRef = C51E5BBF112344BE0093AE96 /* UIImageResizing.m */; };
 		C51E5C72112595710093AE96 /* TableViewDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C51E5C70112595710093AE96 /* TableViewDataWrapper.m */; };
 		C51E5D6F1125B1C80093AE96 /* toc.png in Resources */ = {isa = PBXBuildFile; fileRef = C51E5D6E1125B1C80093AE96 /* toc.png */; };
+		C5243DC9116D6065009D3569 /* iPad-Launch-Image-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = C5243DC8116D6065009D3569 /* iPad-Launch-Image-Portrait.png */; };
+		C5243DE8116D6301009D3569 /* iPad-Launch-Image-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C5243DE7116D6301009D3569 /* iPad-Launch-Image-Landscape.png */; };
+		C5243DEE116D6881009D3569 /* app_icon_white_background_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = C5243DED116D6881009D3569 /* app_icon_white_background_57x57.png */; };
+		C5243E13116D6DDE009D3569 /* app_icon_white_background_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = C5243E12116D6DDE009D3569 /* app_icon_white_background_72x72.png */; };
 		C52B6D060FA60E20000AC6E5 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C52B6BF40FA60E1F000AC6E5 /* NSObject+SBJSON.m */; };
 		C52B6D070FA60E20000AC6E5 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C52B6BF50FA60E1F000AC6E5 /* NSString+SBJSON.m */; };
 		C52B6D080FA60E20000AC6E5 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C52B6BF60FA60E1F000AC6E5 /* SBJSON.m */; };
@@ -41,6 +45,8 @@
 		C53723E31125C4A90029D621 /* SceneListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C53723E21125C4A90029D621 /* SceneListView.xib */; };
 		C54A7B331122F276003CE7A0 /* left-arrow-triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = C54A7B321122F276003CE7A0 /* left-arrow-triangle.png */; };
 		C54A7B3D1122F44A003CE7A0 /* right-arrow-triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = C54A7B3C1122F44A003CE7A0 /* right-arrow-triangle.png */; };
+		C5AEFE67116B6E54008C238F /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AEFE66116B6E54008C238F /* MainWindow-iPad.xib */; };
+		C5AEFEA0116B78A9008C238F /* SceneView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AEFE9F116B78A9008C238F /* SceneView-iPad.xib */; };
 		C5C0CBDA0FA6111800AC62B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C0CBD90FA6111800AC62B2 /* SystemConfiguration.framework */; };
 		C5DC8B350FA614CD00E45A7F /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = C5DC8B340FA614CD00E45A7F /* README.textile */; };
 		C5DC8B8B0FA6392200E45A7F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DC8B8A0FA6392200E45A7F /* Default.png */; };
@@ -65,6 +71,10 @@
 		C51E5C70112595710093AE96 /* TableViewDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewDataWrapper.m; sourceTree = "<group>"; };
 		C51E5C71112595710093AE96 /* TableViewDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewDataWrapper.h; sourceTree = "<group>"; };
 		C51E5D6E1125B1C80093AE96 /* toc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toc.png; sourceTree = "<group>"; };
+		C5243DC8116D6065009D3569 /* iPad-Launch-Image-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad-Launch-Image-Portrait.png"; sourceTree = "<group>"; };
+		C5243DE7116D6301009D3569 /* iPad-Launch-Image-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad-Launch-Image-Landscape.png"; sourceTree = "<group>"; };
+		C5243DED116D6881009D3569 /* app_icon_white_background_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon_white_background_57x57.png; sourceTree = "<group>"; };
+		C5243E12116D6DDE009D3569 /* app_icon_white_background_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon_white_background_72x72.png; sourceTree = "<group>"; };
 		C52B6BF10FA60E1F000AC6E5 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		C52B6BF20FA60E1F000AC6E5 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
 		C52B6BF30FA60E1F000AC6E5 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
@@ -100,6 +110,8 @@
 		C53723E21125C4A90029D621 /* SceneListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SceneListView.xib; sourceTree = "<group>"; };
 		C54A7B321122F276003CE7A0 /* left-arrow-triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow-triangle.png"; sourceTree = "<group>"; };
 		C54A7B3C1122F44A003CE7A0 /* right-arrow-triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow-triangle.png"; sourceTree = "<group>"; };
+		C5AEFE66116B6E54008C238F /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		C5AEFE9F116B78A9008C238F /* SceneView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "SceneView-iPad.xib"; sourceTree = "<group>"; };
 		C5C0CBD90FA6111800AC62B2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C5DC8B340FA614CD00E45A7F /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 		C5DC8B8A0FA6392200E45A7F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -156,6 +168,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				C5AEFE65116B6E53008C238F /* Resources-iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -174,6 +187,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C5243E12116D6DDE009D3569 /* app_icon_white_background_72x72.png */,
+				C5243DED116D6881009D3569 /* app_icon_white_background_57x57.png */,
+				C5243DE7116D6301009D3569 /* iPad-Launch-Image-Landscape.png */,
+				C5243DC8116D6065009D3569 /* iPad-Launch-Image-Portrait.png */,
 				C51E5D6E1125B1C80093AE96 /* toc.png */,
 				C54A7B3C1122F44A003CE7A0 /* right-arrow-triangle.png */,
 				C54A7B321122F276003CE7A0 /* left-arrow-triangle.png */,
@@ -259,6 +276,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		C5AEFE65116B6E53008C238F /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+				C5AEFE66116B6E54008C238F /* MainWindow-iPad.xib */,
+				C5AEFE9F116B78A9008C238F /* SceneView-iPad.xib */,
+			);
+			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -317,6 +343,12 @@
 				C54A7B3D1122F44A003CE7A0 /* right-arrow-triangle.png in Resources */,
 				C51E5D6F1125B1C80093AE96 /* toc.png in Resources */,
 				C53723E31125C4A90029D621 /* SceneListView.xib in Resources */,
+				C5AEFE67116B6E54008C238F /* MainWindow-iPad.xib in Resources */,
+				C5AEFEA0116B78A9008C238F /* SceneView-iPad.xib in Resources */,
+				C5243DC9116D6065009D3569 /* iPad-Launch-Image-Portrait.png in Resources */,
+				C5243DE8116D6301009D3569 /* iPad-Launch-Image-Landscape.png in Resources */,
+				C5243DEE116D6881009D3569 /* app_icon_white_background_57x57.png in Resources */,
+				C5243E13116D6DDE009D3569 /* app_icon_white_background_72x72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,15 +384,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brian Pfeil";
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				PRODUCT_NAME = AnimalFun;
-				SDKROOT = iphoneos2.2;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -368,13 +404,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brian Pfeil";
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				PRODUCT_NAME = AnimalFun;
-				SDKROOT = iphoneos2.2;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -425,13 +465,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brian Pfeil";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				PRODUCT_NAME = AnimalFun;
-				SDKROOT = iphoneos2.2;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5D702086-A821-45A8-9B25-9AFDE20FFDF2";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Distribution;
 		};

@@ -8,7 +8,7 @@
 
 @class BPSceneManager;
 
-@interface BPSceneViewController : UIViewController<AVAudioPlayerDelegate,UIAccelerometerDelegate,BPSpellDelegate> {
+@interface BPSceneViewController : UIViewController<AVAudioPlayerDelegate,UIAccelerometerDelegate,BPSpellDelegate,UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
 	BPSceneManager *_sceneManager;
 	AVAudioPlayer *_audioPlayer;
 	BPAudioPlayer *_spellTextAudioPlayer;
@@ -29,6 +29,7 @@
 	CFTimeInterval _lastTimeMotionDetected;
 	BPSceneListViewController *_sceneListViewController;
 	BPInfoViewController *_infoViewController;
+	id _mypopoverController;	
 	BOOL _displayedFirstScene;
 	BOOL _playSoundNext;
 	BOOL _sceneTransitionInProgress;
@@ -48,6 +49,7 @@
 @property(nonatomic, retain) MPVolumeView *volumeView;
 @property(nonatomic, retain) BPSceneListViewController *sceneListViewController;
 @property(nonatomic, retain) BPInfoViewController *infoViewController;
+@property(nonatomic, retain) id mypopoverController;
 
 -(IBAction)playName:(id)sender;
 -(IBAction)playSound:(id)sender;
