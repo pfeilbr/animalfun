@@ -4,8 +4,8 @@
 <dict>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>app_icon_white_background_57x57.png</string>	
-		<string>app_icon_white_background_72x72.png</string>
+		<string>app_icon_black_to_white_gradient_57x57.png</string>	
+		<string>app_icon_black_to_white_gradient_72x72.png</string>
 	</array>
 	<key>UILaunchImageFile</key>
     <string>iPad-Launch-Image</string>
@@ -33,7 +33,7 @@
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>app_icon_white_background_57x57.png</string>	
+	<string>app_icon_black_to_white_gradient_57x57.png</string>	
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
