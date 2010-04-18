@@ -392,7 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -401,6 +401,7 @@
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = AnimalFun;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos3.2;
@@ -412,13 +413,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = AnimalFun;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos3.2;
@@ -437,7 +439,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Debug;
 		};
@@ -451,7 +453,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Release;
 		};
@@ -465,7 +467,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Distribution;
 		};
@@ -473,15 +475,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brian Pfeil";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = AnimalFun;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5D702086-A821-45A8-9B25-9AFDE20FFDF2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
