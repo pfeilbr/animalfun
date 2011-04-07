@@ -5,10 +5,11 @@
 #import "BPSceneListViewController.h"
 #import "BPInfoViewController.h"
 #import "BPScene.h"
+#import <iAd/iAd.h>
 
 @class BPSceneManager;
 
-@interface BPSceneViewController : UIViewController<AVAudioPlayerDelegate,UIAccelerometerDelegate,BPSpellDelegate,UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
+@interface BPSceneViewController : UIViewController<AVAudioPlayerDelegate,UIAccelerometerDelegate,BPSpellDelegate,UIPopoverControllerDelegate, UISplitViewControllerDelegate, ADBannerViewDelegate> {
 	BPSceneManager *_sceneManager;
 	AVAudioPlayer *_audioPlayer;
 	BPAudioPlayer *_spellTextAudioPlayer;
@@ -33,6 +34,8 @@
 	BOOL _displayedFirstScene;
 	BOOL _playSoundNext;
 	BOOL _sceneTransitionInProgress;
+    ADBannerView *_bannerView;
+    BOOL bannerIsVisible;
 }
 
 @property(nonatomic, retain) BPSceneManager *sceneManager;
@@ -50,6 +53,7 @@
 @property(nonatomic, retain) BPSceneListViewController *sceneListViewController;
 @property(nonatomic, retain) BPInfoViewController *infoViewController;
 @property(nonatomic, retain) id mypopoverController;
+@property(nonatomic, retain) ADBannerView *bannerView;
 
 -(IBAction)playName:(id)sender;
 -(IBAction)playSound:(id)sender;

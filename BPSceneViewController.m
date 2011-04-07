@@ -3,6 +3,7 @@
 #import "BPScene.h"
 #import "BPSceneListViewController.h"
 #import "BPSettings.h"
+#import "UIImageResizing.h"
 #include <AudioToolbox/AudioToolbox.h>
 
 // accelerometer constants
@@ -45,9 +46,10 @@
 @synthesize sceneListViewController=_sceneListViewController;
 @synthesize infoViewController=_infoViewController;
 @synthesize mypopoverController=_mypopoverController;
+@synthesize bannerView = _bannerView;
 
 - (id)init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_sceneManager = nil;
 		_imageTitleWebView = nil;
 		_audioPlayer = nil;
@@ -87,7 +89,7 @@
 	_imageView = [[UIImageView alloc] init];
 	[self.view addSubview:_imageView];
 	
-	CGRect volumeViewFrame;
+	//CGRect volumeViewFrame;
 	
 	// sound/volume view
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -96,12 +98,38 @@
 	}
 	else
 	{
+        //CGRect size = self.view.bounds.size;
 		// iPhone/iPod Touch
-		volumeViewFrame = CGRectMake(40, 400, 240, 30);
+		//volumeViewFrame = CGRectMake(40, 400, 240, 30);
 	}
 
-	self.volumeView = [[MPVolumeView alloc] initWithFrame:volumeViewFrame];
-	[self.view addSubview:_volumeView];	
+	//self.volumeView = [[MPVolumeView alloc] initWithFrame:volumeViewFrame;
+	//[self.view addSubview:_volumeView];	
+
+    // ad banner
+    self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectZero];
+    self.bannerView.delegate = self;
+
+    CGFloat viewHeight = self.view.bounds.size.height;
+    CGFloat toolbarHeight = self.toolbar.bounds.size.height;
+    
+    CGRect bannerFrame = CGRectZero;
+
+    self.bannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;    
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		bannerFrame = CGRectMake(0, 1024 - (toolbarHeight + 66), 766, 66);
+	}
+	else
+	{
+        bannerFrame = CGRectMake(0, 480 - (toolbarHeight + 50), 320, 50);
+	}
+    self.bannerView.frame = bannerFrame;
+    self.bannerView.alpha = 0.0;
+    self.bannerView.hidden = YES;
+    
+    [self.view addSubview:self.bannerView];    
 				
 	// shake to change functionality
 	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / kAccelerometerFrequency)];
@@ -495,6 +523,49 @@
 	[navController release];
 }
 
+- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave {
+    NSLog(@"Banner view is beginning an ad action");
+    BOOL shouldExecuteAction = YES; 
+    if (!willLeave && shouldExecuteAction)
+    {
+        // insert code here to suspend any services that might conflict with the advertisement
+        
+    }
+    return shouldExecuteAction;
+}
+
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
+    if (!bannerIsVisible) {
+        [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
+        banner.hidden = NO;
+        banner.alpha = 1.0;        
+        [UIView commitAnimations];
+        bannerIsVisible = YES;
+    }
+}
+
+- (void)bannerViewActionDidFinish:(ADBannerView *)banner {
+    banner.hidden = YES;
+    bannerIsVisible = NO;
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+        if (bannerIsVisible) {
+            self.bannerView.hidden = YES;
+        }
+    } else {
+        if (bannerIsVisible) {
+            self.bannerView.hidden = NO;
+        }
+        
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -514,6 +585,7 @@
 	[_volumeView release];
 	[_infoViewController release];
 	[_mypopoverController release];
+    [_bannerView release];
     [super dealloc];
 }
 

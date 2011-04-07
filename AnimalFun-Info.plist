@@ -2,22 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>app_icon_black_to_white_gradient_57x57.png</string>	
-		<string>app_icon_black_to_white_gradient_72x72.png</string>
-	</array>
-	<key>UILaunchImageFile</key>
-    <string>iPad-Launch-Image</string>
-	<key>UIInterfaceOrientation</key>
-	<string>UIInterfaceOrientationPortrait</string>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
@@ -26,27 +10,43 @@
 	<array/>
 	<key>CFBundleExecutable</key>
 	<string>AnimalFun</string>
+	<key>CFBundleIconFile</key>
+	<string>app_icon_black_to_white_gradient_57x57.png</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>app_icon_black_to_white_gradient_57x57.png</string>
+		<string>app_icon_black_to_white_gradient_72x72.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.brianpfeil.animalfun</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>app_icon_black_to_white_gradient_57x57.png</string>	
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2.0.1</string>
+	<string>2.1.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
 	<key>NSMainNibFile~ipad</key>
 	<string>MainWindow-iPad</string>
+	<key>UIInterfaceOrientation</key>
+	<string>UIInterfaceOrientationPortrait</string>
+	<key>UILaunchImageFile</key>
+	<string>iPad-Launch-Image</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
 </dict>
 </plist>

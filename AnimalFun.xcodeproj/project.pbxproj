@@ -47,6 +47,7 @@
 		C54A7B3D1122F44A003CE7A0 /* right-arrow-triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = C54A7B3C1122F44A003CE7A0 /* right-arrow-triangle.png */; };
 		C5968CD9116E0C1C003CF01E /* app_icon_black_to_white_gradient_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = C5968CD7116E0C1C003CF01E /* app_icon_black_to_white_gradient_57x57.png */; };
 		C5968CDA116E0C1C003CF01E /* app_icon_black_to_white_gradient_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = C5968CD8116E0C1C003CF01E /* app_icon_black_to_white_gradient_72x72.png */; };
+		C5A54D8F1348EB1B005E813F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A54D8E1348EB1B005E813F /* iAd.framework */; };
 		C5AEFE67116B6E54008C238F /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AEFE66116B6E54008C238F /* MainWindow-iPad.xib */; };
 		C5AEFEA0116B78A9008C238F /* SceneView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AEFE9F116B78A9008C238F /* SceneView-iPad.xib */; };
 		C5C0CBDA0FA6111800AC62B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C0CBD90FA6111800AC62B2 /* SystemConfiguration.framework */; };
@@ -114,6 +115,7 @@
 		C54A7B3C1122F44A003CE7A0 /* right-arrow-triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow-triangle.png"; sourceTree = "<group>"; };
 		C5968CD7116E0C1C003CF01E /* app_icon_black_to_white_gradient_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon_black_to_white_gradient_57x57.png; sourceTree = "<group>"; };
 		C5968CD8116E0C1C003CF01E /* app_icon_black_to_white_gradient_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon_black_to_white_gradient_72x72.png; sourceTree = "<group>"; };
+		C5A54D8E1348EB1B005E813F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		C5AEFE66116B6E54008C238F /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		C5AEFE9F116B78A9008C238F /* SceneView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "SceneView-iPad.xib"; sourceTree = "<group>"; };
 		C5C0CBD90FA6111800AC62B2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -127,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5A54D8F1348EB1B005E813F /* iAd.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -216,6 +219,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5A54D8E1348EB1B005E813F /* iAd.framework */,
 				C52B6D2D0FA60EEC000AC6E5 /* MediaPlayer.framework */,
 				C52B6D2B0FA60EEC000AC6E5 /* AudioToolbox.framework */,
 				C52B6D290FA60EEC000AC6E5 /* AVFoundation.framework */,
@@ -318,7 +322,14 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AnimalFun" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -393,18 +404,20 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brian Pfeil (2H5S3M96K8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brian Pfeil (2H5S3M96K8)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = AnimalFun;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.2;
+				PROVISIONING_PROFILE = "576E20F4-33A6-43E2-9B85-72A34127FC68";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "576E20F4-33A6-43E2-9B85-72A34127FC68";
+				SDKROOT = iphoneos4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -414,16 +427,18 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = AnimalFun;
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -432,14 +447,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brian Pfeil";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.2;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE8934D2-B184-49A3-A261-3F62EFF4A9E9";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -447,13 +463,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brian Pfeil";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.2;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE8934D2-B184-49A3-A261-3F62EFF4A9E9";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -461,13 +481,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brian Pfeil";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.2;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE8934D2-B184-49A3-A261-3F62EFF4A9E9";
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};
@@ -476,16 +500,18 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnimalFun_Prefix.pch;
 				INFOPLIST_FILE = "AnimalFun-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = AnimalFun;
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Distribution;

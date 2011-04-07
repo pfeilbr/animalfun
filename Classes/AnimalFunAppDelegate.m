@@ -9,7 +9,7 @@
 @synthesize splitViewController=_splitViewController;
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
 	BOOL hasBeenLaunchedBefore = [[NSUserDefaults standardUserDefaults] boolForKey:@"hasBeenLaunchedBefore"];
 	if (!hasBeenLaunchedBefore) {
@@ -57,6 +57,18 @@
     
     
     [window makeKeyAndVisible];
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    
 }
 
 - (void)dealloc {

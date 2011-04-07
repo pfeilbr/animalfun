@@ -91,7 +91,7 @@
 	// iPad
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
 		[self.searchDisplayController.searchBar resignFirstResponder];
-		[self.mypopoverController performSelector:@selector(dismissPopoverAnimated:) withObject:YES];
+		[self.mypopoverController performSelector:@selector(dismissPopoverAnimated:) withObject:self.mypopoverController];
 	} else { // iPhone/iPod Touch
 		[self.navigationController dismissModalViewControllerAnimated:YES];
 	}
